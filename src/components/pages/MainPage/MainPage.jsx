@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useGetWeatherByCityQuery } from '../services/weatherApi'
+import { useGetWeatherByCityQuery } from '../../services/weatherApi'
 import './MainPage.scss'
 import { CircularProgress } from '@mui/material'
+import "react-rain-animation/lib/style.css";
+import WeatherEffect from '../favoritesPage/WeatherEffect';
 
 const MainPage = () => {
 
@@ -29,6 +31,7 @@ const MainPage = () => {
         }
         if (data) {
             setCity('')
+            setTrigger(false)
         }
     }, [error, data])
       
@@ -67,6 +70,8 @@ const MainPage = () => {
         <h2>{isError}</h2>
        )}
         </div>
+
+    { data && <WeatherEffect data={data}/>}
     
     { data && (
     <div className='info'>
