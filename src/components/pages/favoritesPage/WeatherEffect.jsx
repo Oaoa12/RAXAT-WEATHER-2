@@ -28,7 +28,42 @@ const WeatherEffect = ({ data }) => {
   {ShowEffect === 'Clear' && (
         <div className="sun-glow"></div>
       )}
+
+
+      {ShowEffect === 'Snow' && (
+        <div className="snow-container">
+        {[...Array(100)].map((_, i) => {
+          const size = Math.random() * 0.5 + 0.2; // Размер снежинки (0.2-0.7rem)
+          const duration = 10 + Math.random() * 20; // Длительность падения (10-30s)
+          const delay =  0; // Задержка начала анимации (0-5s)
+          const left = Math.random() * 100; // Позиция по горизонтали
+          
+          return (
+            <div
+              key={i}
+              className="snowflake"
+              style={{
+                left: `${left}%`,
+                width: `${size}rem`,
+                height: `${size}rem`,
+                animationDuration: `${duration}s`,
+                animationDelay: `${delay}s`,
+                opacity: Math.random() * 0.7 + 0.3, 
+              }}
+            />
+          );
+        })}
+      </div>
+      )}
+
+
+      {ShowEffect === 'Clouds' && (
+          <div className="subtle-fog">
+          <div className="fog-veil"></div>
+        </div>
+      )}
 </>
+
   )
 }
 

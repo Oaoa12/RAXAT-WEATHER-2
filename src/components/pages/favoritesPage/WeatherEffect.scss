@@ -36,3 +36,115 @@
     rgba(255, 255, 255, 0) 70%
   );
 }
+
+
+.snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: snow-fall linear infinite;
+  pointer-events: none;
+}
+
+@keyframes snow-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+  }
+  100% {
+    transform: translateY(110vh) translateX(10vw);
+  }
+}
+
+
+.cloudy-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #a7a7a7; /* Серый фон */
+  z-index: -1;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  filter: blur(30px);
+}
+
+.cloud:nth-child(1) {
+  width: 200px;
+  height: 100px;
+  top: 20%;
+  left: 10%;
+  animation: move 25s linear infinite;
+}
+
+.cloud:nth-child(2) {
+  width: 300px;
+  height: 150px;
+  top: 40%;
+  left: 50%;
+  animation: move 35s linear infinite reverse;
+}
+
+.cloud:nth-child(3) {
+  width: 250px;
+  height: 120px;
+  top: 70%;
+  left: 30%;
+  animation: move 40s linear infinite;
+}
+
+@keyframes move {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(calc(100vw + 100px)); }
+}
+
+
+.subtle-fog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.fog-veil {
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(
+      to bottom,
+      rgba(245, 245, 245, 0.4) 0%,
+      rgba(230, 230, 230, 0.2) 50%,
+      transparent 100%
+    );
+  animation: gentle-drift 15s infinite alternate ease-in-out;
+}
+
+@keyframes gentle-drift {
+  0% { 
+    transform: translateY(-5px);
+    opacity: 0.7; 
+  }
+  100% { 
+    transform: translateY(5px);
+    opacity: 0.9;
+  }
+}
