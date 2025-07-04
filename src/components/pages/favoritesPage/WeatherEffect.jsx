@@ -33,10 +33,10 @@ const WeatherEffect = ({ data }) => {
       {ShowEffect === 'Snow' && (
         <div className="snow-container">
         {[...Array(100)].map((_, i) => {
-          const size = Math.random() * 0.5 + 0.2; // Размер снежинки (0.2-0.7rem)
-          const duration = 10 + Math.random() * 20; // Длительность падения (10-30s)
-          const delay =  0; // Задержка начала анимации (0-5s)
-          const left = Math.random() * 100; // Позиция по горизонтали
+          const size = Math.random() * 0.5 + 0.2; 
+          const duration = 10 + Math.random() * 20; 
+          const delay =  0; 
+          const left = Math.random() * 100; 
           
           return (
             <div
